@@ -1,0 +1,170 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root{
+    /******************theme 1******************************/
+    /*backgrounds*/
+    --main-background_theme-1: hsl(222, 26%, 31%); 
+    --toggle-background__keypad-background_theme-1: hsl(223, 31%, 20%);
+    --screen-background_theme-1: hsl(224, 36%, 15%);
+    /*keys*/
+    --key-background_btn-del-reset_theme-1: hsl(225, 21%, 49%);
+    --key-shadow_btn-del-reset_theme-1: hsl(224, 28%, 35%);
+    --key-background__toggle_btn-result_theme-1: hsl(6, 63%, 50%);
+    --key-shadow_btn-result_theme-1: hsl(6, 70%, 34%);
+    --key-background_btn-number_theme-1: hsl(30, 25%, 89%);
+    --key-shadow_btn-number_theme-1: hsl(28, 16%, 65%);
+    /*text*/
+    --colors-btn-number_theme-1: hsl(221, 14%, 31%);
+    --white-text_theme-1: hsl(0, 0%, 100%);
+    /******************theme 2******************************/
+    /*backgrounds*/
+    --main-background_theme-2: hsl(0, 0%, 90%);
+    --toggle-background__keypad-background_theme-2: hsl(0, 5%, 81%);
+    --screen-background_theme-2: hsl(0, 0%, 93%);
+    /*keys*/
+    --key-background_btn-del-reset_theme-2: hsl(185, 42%, 37%);
+    --key-shadow_btn-del-reset_theme-2: hsl(185, 58%, 25%);
+    --key-background__toggle_btn-result_theme-2: hsl(25, 98%, 40%);
+    --key-shadow_btn-result_theme-2: hsl(25, 99%, 27%);
+    --key-background_btn-number_theme-2: hsl(45, 7%, 89%);
+    --key-shadow_btn-number_theme-2: hsl(35, 11%, 61%);
+    /*text*/
+    --colors-btn-number_theme-2: hsl(60, 10%, 19%)
+    --white-text_theme-2: hsl(0, 0%, 100%);
+    /******************theme 3******************************/
+    /*backgrounds*/
+    --main-background_theme-3: hsl(268, 75%, 9%);
+    --toggle-background__keypad-background__screen-background_theme-3: hsl(268, 71%, 12%);
+    /*keys*/
+    --key-background_btn-del-reset_theme-3: hsl(281, 89%, 26%);
+    --key-shadow_btn-del-reset-theme-3: hsl(285, 91%, 52%);
+    --key-background__toggle_btn-result_theme-3: hsl(176, 100%, 44%);
+    --key-shadow_btn-result_theme-3: hsl(177, 92%, 70%);
+    --key-background_btn-numbers_theme-3: hsl(268, 47%, 21%);
+    --key-shadow_btn-numbers_theme-3: hsl(290, 70%, 36%);
+    /*text*/
+    --colors-btn-text-numbers-result_text_theme-3: hsl(52, 100%, 62%);
+    --colors-btn-text-result_theme-3: hsl(198, 20%, 13%);
+    --white-text_theme-3: hsl(0, 0%, 100%);
+}
+
+html {
+  font-family: "League Spartan", sans-serif;
+}
+
+/*********MOBILE FIRST*************/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding: 0;
+  margin: 0;
+}
+
+body{
+    background-color: var(--main-background_theme-1);
+}
+
+.main{
+    padding: 33.5px 0 0 0;
+}
+
+.header{
+    /*display: flex;
+    justify-content: space-between;
+    align-items: flex-start;*/
+}
+
+.title,
+.switch__description,
+.description__options{
+    font-weight: 700;
+    font-style: normal;
+    color: var(--white-text_theme-1);
+}
+
+.title{
+    font-size: 1.98rem;
+}
+
+.switch-theme{
+    /*display: flex;
+    flex-flow: row nowrap;
+    gap: 30px;
+    align-items: flex-end;
+    */
+}
+
+.switch__description{
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+}
+
+.description__options{
+    font-size: 0.78rem;
+}
+
+.switch{
+    background-color: var(--toggle-background__keypad-background_theme-1);
+    display: flex;
+    flex-flow: row nowrap;
+    width: 70px;
+    gap: 5px;
+    border-radius: 20px;
+    align-items: center;
+    height: 26px;
+    padding: 0 5px;
+    position: relative;
+}
+
+.option-theme{
+    appearance: none;
+    display: block;
+    width: 33.3%;
+    height: 15.5px;
+    border-radius: 50%;
+}
+
+.switch-controler{
+    appearance: none;
+    border: none;
+    display: block;
+    width: 15.5px;
+    height: 15.5px;
+    border-radius: 50%;
+    background-color: var(--key-background__toggle_btn-result_theme-1);
+    position: absolute;
+    left: 5.5px;
+    transition: all 0.3s;
+}
+
+.option-theme:nth-of-type(2):checked ~ .switch-controler{
+    transform: translateX(21px);
+}
+
+.option-theme:nth-of-type(3):checked ~ .switch-controler{
+    transform: translateX(42.5px);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
