@@ -15,21 +15,21 @@
       sizes="32x32"
       href="./images/favicon-32x32.png"
     />
-    <link rel="stylesheet" href="./css/normalize.css" type="text/css"/>
-    <link rel="stylesheet" href="./css/styles.css" type="text/css"/>
+    <link rel="stylesheet" href="./css/normalize.css" type="text/css" />
+    <link rel="stylesheet" href="./css/styles.css" type="text/css" />
     <title>Frontend Mentor | Calculator app</title>
   </head>
   <body>
     <main class="main">
       <header class="header">
         <h1 class="title">calc</h1>
-        <div class="switch-theme">
-          <h2 class="switch__description">theme</h2>
-          <div class="switch__group">
-            <p class="description__options">
-              <span class="option">1</span><span class="option">2</span
-              ><span class="option">3</span>
-            </p>
+        <div class="switch__group">
+          <p class="description__options">
+            <span class="option">1</span><span class="option">2</span
+            ><span class="option">3</span>
+          </p>
+          <div class="switch__container">
+            <h2 class="switch__description">theme</h2>
             <div class="switch">
               <input
                 type="radio"
@@ -57,33 +57,57 @@
                 class="option-theme"
                 tabindex="0"
               />
-              <button type="button" class="switch-controler" aria-labelledby="Switch controler"></button>
+              <button
+                type="button"
+                class="switch-controler"
+                aria-labelledby="Switch controler"
+              ></button>
             </div>
           </div>
         </div>
       </header>
-      <div class="viewfinder" aria-live="assertive" aria-atomic="true" aria-labelledby="view results and operations">399,981</div>
+      <div
+        class="viewfinder"
+        aria-live="assertive"
+        aria-atomic="true"
+        aria-labelledby="view results and operations"
+      >
+        399,981
+      </div>
       <div class="keys">
         <button class="button button__number" type="button" value="7">7</button>
         <button class="button button__number" type="button" value="8">8</button>
         <button class="button button__number" type="button" value="9">9</button>
-        <button class="button button__calculator" type="button" value="DEL">DEL</button>
+        <button class="button button__calculator" type="button" value="DEL">
+          DEL
+        </button>
         <button class="button button__number" type="button" value="4">4</button>
         <button class="button button__number" type="button" value="5">5</button>
         <button class="button button__number" type="button" value="6">6</button>
-        <button class="button button__operator" type="button" value="+">+</button>
+        <button class="button button__operator" type="button" value="+">
+          +
+        </button>
         <button class="button button__number" type="button" value="1">1</button>
         <button class="button button__number" type="button" value="2">2</button>
         <button class="button button__number" type="button" value="3">3</button>
-        <button class="button button__operator" type="button" value="-">-</button>
-        <button class="button button__calculator" type="button" value=".">.</button>
+        <button class="button button__operator" type="button" value="-">
+          -
+        </button>
+        <button class="button button__calculator" type="button" value=".">
+          .
+        </button>
         <button class="button button__number" type="button" value="0">0</button>
-        <button class="button button__operator" type="button" value="/">/</button>
-        <button class="button button__operator" type="button" value="x">x</button>
-        <button class="button button__calculator" type="button" value="RESET">RESET</button>
+        <button class="button button__operator" type="button" value="/">
+          /
+        </button>
+        <button class="button button__operator" type="button" value="x">
+          x
+        </button>
+        <button class="button button__calculator" type="button" value="RESET">
+          RESET
+        </button>
         <button class="button button__result" type="button" value="=">=</button>
       </div>
     </main>
-
   </body>
 </html>
