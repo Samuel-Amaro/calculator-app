@@ -7,6 +7,7 @@
 }
 
 :root{
+    
     /******************theme 1******************************/
     /*backgrounds*/
     --main-background_theme-1: hsl(222, 26%, 31%); 
@@ -25,6 +26,7 @@
     /*active states*/
     --bg-color-switch-controler__btn-result: #F2695C;
     --bg-color-buttons-calculator: #A2B3E1;
+    
     /******************theme 2******************************/
     /*backgrounds*/
     --main-background_theme-2: hsl(0, 0%, 90%);
@@ -38,8 +40,9 @@
     --key-background_btn-number_theme-2: hsl(45, 7%, 89%);
     --key-shadow_btn-number_theme-2: hsl(35, 11%, 61%);
     /*text*/
-    --colors-btn-number_theme-2: hsl(60, 10%, 19%)
+    --colors-btn-number_theme-2: hsl(60, 10%, 19%);
     --white-text_theme-2: hsl(0, 0%, 100%);
+    
     /******************theme 3******************************/
     /*backgrounds*/
     --main-background_theme-3: hsl(268, 75%, 9%);
@@ -55,6 +58,24 @@
     --colors-btn-text-numbers-result_text_theme-3: hsl(52, 100%, 62%);
     --colors-btn-text-result_theme-3: hsl(198, 20%, 13%);
     --white-text_theme-3: hsl(0, 0%, 100%);
+    
+    /**THEME VARIABLES WITH VALUES THEME 1**/
+    --text-color: var(--white-text_theme-1);
+    --bg-main: var(--main-background_theme-1);
+    --bg-switch_keys: var(--toggle-background__keypad-background_theme-1);
+    --bg-screen: var(--screen-background_theme-1);
+    --colors-text-number_operators: var(--colors-btn-number_theme-1);
+    --bg-number_operators: var(--key-background_btn-number_theme-1);
+    --bg-shadow-numbers_operators: var(--key-shadow_btn-number_theme-1);
+    --colors-text-btn-calculators: var(--white-text_theme-1);
+    --bg-btn-calculators: var(--key-background_btn-del-reset_theme-1);
+    --colors-shadow-border-btn-calculators: var(--key-shadow_btn-del-reset_theme-1);
+    --bg-btn-result: var(--key-background__toggle_btn-result_theme-1);
+    --text-colors-btn-result: var(--white-text_theme-1);
+    --colors-shadow-border-btn-result: var(--key-shadow_btn-result_theme-1);
+    --colors-hover-switch-controler_btn-result: var(--bg-color-switch-controler__btn-result);
+    --colors-hover-btn-calculators: var(--bg-color-buttons-calculator);
+    --colors-hover-btn-commons: var(--white-text_theme-1);
 }
 
 html {
@@ -74,7 +95,7 @@ h6 {
 }
 
 body{
-    background-color: var(--main-background_theme-1);
+    background-color: var(--bg-main);
 }
 
 .main{ 
@@ -90,23 +111,21 @@ body{
     margin-bottom: 32.8px;
 }
 
-.title,
-.switch__description,
-.description__options{
+.text{
     font-weight: 700;
     font-style: normal;
-    color: var(--white-text_theme-1);
+    color: var(--text-color);
 }
 
-.title{ font-size: 1.98rem; }
+.text__title{ font-size: 1.98rem; }
 
-.switch__description{
+.text__subtitle{
     text-transform: uppercase;
     font-size: 0.75rem;
     letter-spacing: 1.5px;
 }
 
-.description__options{
+.text__description-options{
     font-size: 0.78rem;
     width: 70px;
     display: flex;
@@ -123,7 +142,7 @@ body{
 }
 
 .switch{
-    background-color: var(--toggle-background__keypad-background_theme-1);
+    background-color: var(--bg-switch_keys);
     display: flex;
     flex-flow: row nowrap;
     width: 70px;
@@ -164,8 +183,8 @@ body{
 }
 
 .viewfinder{
-    background-color: var(--screen-background_theme-1);
-    color: var(--white-text_theme-1);
+    background-color: var(--bg-screen);
+    color: var(--text-color);
     font-weight: 700;
     font-style: normal;
     font-size: 40.5px;
@@ -177,7 +196,7 @@ body{
 }
 
 .keys{
-    background-color: var(--toggle-background__keypad-background_theme-1);
+    background-color: var(--bg-switch_keys);
     padding: 24px 24px 24px 24px;
     display: grid;
     grid-template-columns: repeat(4, 21.5%);
@@ -200,51 +219,40 @@ body{
     padding: 8px 0 0 0;
 }
 
-.button__number, 
-.button__operator,
-.button__calculator:nth-of-type(13){
+.button__commons{
     font-size: 32px;
-}
-
-.button__number,
-.button__operator,
-.button__calculator:nth-of-type(13){
-    background-color: var(--key-background_btn-number_theme-1);
-    border-color: var(--key-shadow_btn-number_theme-1);
-    color: var(--colors-btn-number_theme-1);
+    background-color: var(--bg-number_operators);
+    border-color: var(--bg-shadow-numbers_operators);
+    color: var(--colors-text-number_operators);
 }
 
 .button__calculator{
     padding: 2.5px 0 0 0;
     font-size: 20px;
     letter-spacing: -0.1px;
+    background-color: var(--bg-btn-calculators);
+    border-color: var(--colors-shadow-border-btn-calculators);
+    color: var(--colors-text-btn-calculators);
 }
 
-.button__calculator:nth-of-type(13){
+.button__diviser{
     padding: 8px 0 0 0;
 }
 
-.button__calculator[value="RESET"]{
+.button__calculator:nth-of-type(17){
     grid-column: 1/3;
-}
-
-.button__calculator[value="RESET"],
-.button__calculator[value="DEL"]{
-    background-color: var(--key-background_btn-del-reset_theme-1);
-    border-color: var(--key-shadow_btn-del-reset_theme-1);
-    color: var(--white-text_theme-1);
 }
 
 .button__result{
     font-size: 20px;
     padding: 2px 0 0 0;
-    background-color: var(--key-background__toggle_btn-result_theme-1);
-    border-color: var(--key-shadow_btn-result_theme-1);
-    color: var(--white-text_theme-1);
+    background-color: var(--bg-btn-result);
+    border-color: var(--colors-shadow-border-btn-result);
+    color: var(--text-colors-btn-result);
     grid-column: 3/5;
 }
 
-/**active states theme 01**/
+/**ACTIVE STATES**/
 .button, 
 .switch-controler{
     cursor: pointer;
@@ -252,35 +260,26 @@ body{
 
 .button__result:hover, 
 .switch-controler:hover{
-    background-color: var(--bg-color-switch-controler__btn-result);
+    background-color: var(--colors-hover-switch-controler_btn-result);
 }
 
-.button__calculator[value="RESET"]:hover,
-.button__calculator[value="DEL"]:hover{
-    background-color: var(--bg-color-buttons-calculator);
+.button__calculator:hover{
+    background-color: var(--colors-hover-btn-calculators);
 }
 
-.button__number:hover,
-.button__operator:hover,
-.button__calculator:nth-of-type(13):hover{
-    background-color: var(--white-text_theme-1);
+.button__commons:hover{
+    background-color: var(--colors-hover-btn-commons);
 }
 
-/**THEME 02**/
-.body_bg-color-theme-2{
-    background-color: var(--main-background_theme-2);
+/*TODO: para criar o alternador de temas, cada option de data-theme ira atribuir novos valores as variaveis de tema*/
+[data-theme="1"]{
+  
 }
 
-.text-color-theme-2{
-    color: var(--colors-btn-number_theme-2);
+[data-theme="2"]{
+
 }
 
-.switch-controler_bg-color{
-    background-color: var(--key-background__toggle_btn-result_theme-2);
+[data-theme="3"]{
+    
 }
-
-.keys-switch_bg-color{
-    background-color: var(--toggle-background__keypad-background_theme-2);
-}
-
-

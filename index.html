@@ -19,27 +19,28 @@
     <link rel="stylesheet" href="./css/styles.css" type="text/css" />
     <title>Frontend Mentor | Calculator app</title>
   </head>
-  <body class="body body_bg-color-theme-2">
+  <body class="body" data-theme="1">
     <main class="main">
       <header class="header">
-        <h1 class="title text-color-theme-2">calc</h1>
+        <h1 class="text text__title">calc</h1>
         <div class="switch__group">
-          <p class="description__options text-color-theme-2">
+          <p class="text text__description-options">
             <span class="option">1</span><span class="option">2</span
             ><span class="option">3</span>
           </p>
           <div class="switch__container">
-            <h2 class="switch__description text-color-theme-2">theme</h2>
-            <div class="switch keys-switch_bg-color">
+            <h2 class="text text__subtitle text_color-theme2">theme</h2>
+            <div class="switch">
               <input
                 type="radio"
                 name="option-theme"
                 aria-label="Option theme 01"
                 value="theme-01"
                 class="option-theme"
-                checked
+                checked="true"
                 aria-checked="true"
                 tabindex="0"
+                aria-hidden="true"
               />
               <input
                 type="radio"
@@ -48,6 +49,7 @@
                 value="theme-02"
                 class="option-theme"
                 tabindex="0"
+                aria-hidden="true"
               />
               <input
                 type="radio"
@@ -56,10 +58,11 @@
                 value="theme-03"
                 class="option-theme"
                 tabindex="0"
+                aria-hidden="true"
               />
               <button
                 type="button"
-                class="switch-controler switch-controler_bg-color"
+                class="switch-controler"
                 aria-labelledby="Switch controler"
                 aria-pressed="mixed"
                 aria-label="Switch Controller to toggle themes"
@@ -69,40 +72,40 @@
         </div>
       </header>
       <div
-        class="viewfinder text-color-theme-2"
+        class="viewfinder"
         aria-live="assertive"
         aria-atomic="true"
         aria-labelledby="view results and operations"
       >
         399,981
       </div>
-      <div class="keys keys-switch_bg-color">
-        <button class="button button__number" type="button" value="7">7</button>
-        <button class="button button__number" type="button" value="8">8</button>
-        <button class="button button__number" type="button" value="9">9</button>
+      <div class="keys">
+        <button class="button button__number button__commons" type="button" value="7">7</button>
+        <button class="button button__number button__commons" type="button" value="8">8</button>
+        <button class="button button__number button__commons" type="button" value="9">9</button>
         <button class="button button__calculator" type="button" value="DEL">
           DEL
         </button>
-        <button class="button button__number" type="button" value="4">4</button>
-        <button class="button button__number" type="button" value="5">5</button>
-        <button class="button button__number" type="button" value="6">6</button>
-        <button class="button button__operator" type="button" value="+">
+        <button class="button button__number button__commons" type="button" value="4">4</button>
+        <button class="button button__number button__commons" type="button" value="5">5</button>
+        <button class="button button__number button__commons" type="button" value="6">6</button>
+        <button class="button button__operator button__commons" type="button" value="+">
           +
         </button>
-        <button class="button button__number" type="button" value="1">1</button>
-        <button class="button button__number" type="button" value="2">2</button>
-        <button class="button button__number" type="button" value="3">3</button>
-        <button class="button button__operator" type="button" value="-">
+        <button class="button button__number button__commons" type="button" value="1">1</button>
+        <button class="button button__number button__commons" type="button" value="2">2</button>
+        <button class="button button__number button__commons" type="button" value="3">3</button>
+        <button class="button button__operator button__commons" type="button" value="-">
           -
         </button>
-        <button class="button button__calculator" type="button" value=".">
+        <button class="button button__commons button__diviser" type="button" value=".">
           .
         </button>
-        <button class="button button__number" type="button" value="0">0</button>
-        <button class="button button__operator" type="button" value="/">
+        <button class="button button__number button__commons" type="button" value="0">0</button>
+        <button class="button button__operator button__commons" type="button" value="/">
           /
         </button>
-        <button class="button button__operator" type="button" value="x">
+        <button class="button button__operator button__commons" type="button" value="x">
           x
         </button>
         <button class="button button__calculator" type="button" value="RESET">
