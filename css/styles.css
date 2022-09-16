@@ -22,6 +22,9 @@
     /*text*/
     --colors-btn-number_theme-1: hsl(221, 14%, 31%);
     --white-text_theme-1: hsl(0, 0%, 100%);
+    /*active states*/
+    --bg-color-switch-controler__btn-result: #F2695C;
+    --bg-color-buttons-calculator: #A2B3E1;
     /******************theme 2******************************/
     /*backgrounds*/
     --main-background_theme-2: hsl(0, 0%, 90%);
@@ -58,7 +61,7 @@ html {
   font-family: "League Spartan", sans-serif;
 }
 
-/*********MOBILE FIRST*************/
+/*********MOBILE FIRST THEME 01*************/
 
 h1,
 h2,
@@ -241,11 +244,43 @@ body{
     grid-column: 3/5;
 }
 
+/**active states theme 01**/
+.button, 
+.switch-controler{
+    cursor: pointer;
+}
 
+.button__result:hover, 
+.switch-controler:hover{
+    background-color: var(--bg-color-switch-controler__btn-result);
+}
 
+.button__calculator[value="RESET"]:hover,
+.button__calculator[value="DEL"]:hover{
+    background-color: var(--bg-color-buttons-calculator);
+}
 
+.button__number:hover,
+.button__operator:hover,
+.button__calculator:nth-of-type(13):hover{
+    background-color: var(--white-text_theme-1);
+}
 
+/**THEME 02**/
+.body_bg-color-theme-2{
+    background-color: var(--main-background_theme-2);
+}
 
+.text-color-theme-2{
+    color: var(--colors-btn-number_theme-2);
+}
 
+.switch-controler_bg-color{
+    background-color: var(--key-background__toggle_btn-result_theme-2);
+}
+
+.keys-switch_bg-color{
+    background-color: var(--toggle-background__keypad-background_theme-2);
+}
 
 
