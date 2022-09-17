@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap");
 
 * {
   box-sizing: border-box;
@@ -6,76 +6,89 @@
   margin: 0;
 }
 
-:root{
-    
-    /******************theme 1******************************/
-    /*backgrounds*/
-    --main-background_theme-1: hsl(222, 26%, 31%); 
-    --toggle-background__keypad-background_theme-1: hsl(223, 31%, 20%);
-    --screen-background_theme-1: hsl(224, 36%, 15%);
-    /*keys*/
-    --key-background_btn-del-reset_theme-1: hsl(225, 21%, 49%);
-    --key-shadow_btn-del-reset_theme-1: hsl(224, 28%, 35%);
-    --key-background__toggle_btn-result_theme-1: hsl(6, 63%, 50%);
-    --key-shadow_btn-result_theme-1: hsl(6, 70%, 34%);
-    --key-background_btn-number_theme-1: hsl(30, 25%, 89%);
-    --key-shadow_btn-number_theme-1: hsl(28, 16%, 65%);
-    /*text*/
-    --colors-btn-number_theme-1: hsl(221, 14%, 31%);
-    --white-text_theme-1: hsl(0, 0%, 100%);
-    /*active states*/
-    --bg-color-switch-controler__btn-result: #F2695C;
-    --bg-color-buttons-calculator: #A2B3E1;
-    
-    /******************theme 2******************************/
-    /*backgrounds*/
-    --main-background_theme-2: hsl(0, 0%, 90%);
-    --toggle-background__keypad-background_theme-2: hsl(0, 5%, 81%);
-    --screen-background_theme-2: hsl(0, 0%, 93%);
-    /*keys*/
-    --key-background_btn-del-reset_theme-2: hsl(185, 42%, 37%);
-    --key-shadow_btn-del-reset_theme-2: hsl(185, 58%, 25%);
-    --key-background__toggle_btn-result_theme-2: hsl(25, 98%, 40%);
-    --key-shadow_btn-result_theme-2: hsl(25, 99%, 27%);
-    --key-background_btn-number_theme-2: hsl(45, 7%, 89%);
-    --key-shadow_btn-number_theme-2: hsl(35, 11%, 61%);
-    /*text*/
-    --colors-btn-number_theme-2: hsl(60, 10%, 19%);
-    --white-text_theme-2: hsl(0, 0%, 100%);
-    
-    /******************theme 3******************************/
-    /*backgrounds*/
-    --main-background_theme-3: hsl(268, 75%, 9%);
-    --toggle-background__keypad-background__screen-background_theme-3: hsl(268, 71%, 12%);
-    /*keys*/
-    --key-background_btn-del-reset_theme-3: hsl(281, 89%, 26%);
-    --key-shadow_btn-del-reset-theme-3: hsl(285, 91%, 52%);
-    --key-background__toggle_btn-result_theme-3: hsl(176, 100%, 44%);
-    --key-shadow_btn-result_theme-3: hsl(177, 92%, 70%);
-    --key-background_btn-numbers_theme-3: hsl(268, 47%, 21%);
-    --key-shadow_btn-numbers_theme-3: hsl(290, 70%, 36%);
-    /*text*/
-    --colors-btn-text-numbers-result_text_theme-3: hsl(52, 100%, 62%);
-    --colors-btn-text-result_theme-3: hsl(198, 20%, 13%);
-    --white-text_theme-3: hsl(0, 0%, 100%);
-    
-    /**THEME VARIABLES WITH VALUES THEME 1**/
-    --text-color: var(--white-text_theme-1);
-    --bg-main: var(--main-background_theme-1);
-    --bg-switch_keys: var(--toggle-background__keypad-background_theme-1);
-    --bg-screen: var(--screen-background_theme-1);
-    --colors-text-number_operators: var(--colors-btn-number_theme-1);
-    --bg-number_operators: var(--key-background_btn-number_theme-1);
-    --bg-shadow-numbers_operators: var(--key-shadow_btn-number_theme-1);
-    --colors-text-btn-calculators: var(--white-text_theme-1);
-    --bg-btn-calculators: var(--key-background_btn-del-reset_theme-1);
-    --colors-shadow-border-btn-calculators: var(--key-shadow_btn-del-reset_theme-1);
-    --bg-btn-result: var(--key-background__toggle_btn-result_theme-1);
-    --text-colors-btn-result: var(--white-text_theme-1);
-    --colors-shadow-border-btn-result: var(--key-shadow_btn-result_theme-1);
-    --colors-hover-switch-controler_btn-result: var(--bg-color-switch-controler__btn-result);
-    --colors-hover-btn-calculators: var(--bg-color-buttons-calculator);
-    --colors-hover-btn-commons: var(--white-text_theme-1);
+:root {
+  /******************theme 1******************************/
+  /*backgrounds*/
+  --main-background_theme-1: hsl(222, 26%, 31%);
+  --toggle-background__keypad-background_theme-1: hsl(223, 31%, 20%);
+  --screen-background_theme-1: hsl(224, 36%, 15%);
+  /*keys*/
+  --key-background_btn-del-reset_theme-1: hsl(225, 21%, 49%);
+  --key-shadow_btn-del-reset_theme-1: hsl(224, 28%, 35%);
+  --key-background__toggle_btn-result_theme-1: hsl(6, 63%, 50%);
+  --key-shadow_btn-result_theme-1: hsl(6, 70%, 34%);
+  --key-background_btn-number_theme-1: hsl(30, 25%, 89%);
+  --key-shadow_btn-number_theme-1: hsl(28, 16%, 65%);
+  /*text*/
+  --colors-btn-number_theme-1: hsl(221, 14%, 31%);
+  --white-text_theme-1: hsl(0, 0%, 100%);
+  /*active states*/
+  --bg-color-switch-controler__btn-result: #f2695c;
+  --bg-color-buttons-calculator: #a2b3e1;
+
+  /******************theme 2******************************/
+  /*backgrounds*/
+  --main-background_theme-2: hsl(0, 0%, 90%);
+  --toggle-background__keypad-background_theme-2: hsl(0, 5%, 81%);
+  --screen-background_theme-2: hsl(0, 0%, 93%);
+  /*keys*/
+  --key-background_btn-del-reset_theme-2: hsl(185, 42%, 37%);
+  --key-shadow_btn-del-reset_theme-2: hsl(185, 58%, 25%);
+  --key-background__toggle_btn-result_theme-2: hsl(25, 98%, 40%);
+  --key-shadow_btn-result_theme-2: hsl(25, 99%, 27%);
+  --key-background_btn-number_theme-2: hsl(45, 7%, 89%);
+  --key-shadow_btn-number_theme-2: hsl(35, 11%, 61%);
+  /*text*/
+  --colors-btn-number_theme-2: hsl(60, 10%, 19%);
+  --white-text_theme-2: hsl(0, 0%, 100%);
+  /*active states*/
+  --hover-btn-result_switch-controler: #ff8a38;
+  --hover-btn-calculators: #62b5bd;
+  --hover-btn-commons: #ffffff;
+
+  /******************theme 3******************************/
+  /*backgrounds*/
+  --main-background_theme-3: hsl(268, 75%, 9%);
+  --toggle-background__keypad-background__screen-background_theme-3: hsl(
+    268,
+    71%,
+    12%
+  );
+  /*keys*/
+  --key-background_btn-del-reset_theme-3: hsl(281, 89%, 26%);
+  --key-shadow_btn-del-reset-theme-3: hsl(285, 91%, 52%);
+  --key-background__toggle_btn-result_theme-3: hsl(176, 100%, 44%);
+  --key-shadow_btn-result_theme-3: hsl(177, 92%, 70%);
+  --key-background_btn-numbers_theme-3: hsl(268, 47%, 21%);
+  --key-shadow_btn-numbers_theme-3: hsl(290, 70%, 36%);
+  /*text*/
+  --colors-btn-text-numbers-result_text_theme-3: hsl(52, 100%, 62%);
+  --colors-btn-text-result_theme-3: hsl(198, 20%, 13%);
+  --white-text_theme-3: hsl(0, 0%, 100%);
+
+  /**THEME VARIABLES WITH VALUES THEME 1**/
+  --text-color: var(--white-text_theme-1);
+  --bg-main: var(--main-background_theme-1);
+  --bg-switch_keys: var(--toggle-background__keypad-background_theme-1);
+  --bg-screen: var(--screen-background_theme-1);
+  --colors-text-number_operators: var(--colors-btn-number_theme-1);
+  --bg-number_operators: var(--key-background_btn-number_theme-1);
+  --bg-shadow-numbers_operators: var(--key-shadow_btn-number_theme-1);
+  --colors-text-btn-calculators: var(--white-text_theme-1);
+  --bg-btn-calculators: var(--key-background_btn-del-reset_theme-1);
+  --colors-shadow-border-btn-calculators: var(
+    --key-shadow_btn-del-reset_theme-1
+  );
+  --bg-btn-result_switch-controler: var(
+    --key-background__toggle_btn-result_theme-1
+  );
+  --text-colors-btn-result: var(--white-text_theme-1);
+  --colors-shadow-border-btn-result: var(--key-shadow_btn-result_theme-1);
+  --colors-hover-switch-controler_btn-result: var(
+    --bg-color-switch-controler__btn-result
+  );
+  --colors-hover-btn-calculators: var(--bg-color-buttons-calculator);
+  --colors-hover-btn-commons: var(--white-text_theme-1);
 }
 
 html {
@@ -94,192 +107,265 @@ h6 {
   margin: 0;
 }
 
-body{
-    background-color: var(--bg-main);
+body {
+  background-color: var(--bg-main);
 }
 
-.main{ 
-    padding: 27px 23px 29px 23px;
-    max-width: 375px; 
-    margin: 0 auto;
+.main {
+  padding: 27px 23px 29px 23px;
+  max-width: 375px;
+  margin: 0 auto;
 }
 
-.header{
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 32.8px;
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 32.8px;
 }
 
-.text{
-    font-weight: 700;
-    font-style: normal;
-    color: var(--text-color);
+.text {
+  font-weight: 700;
+  font-style: normal;
+  color: var(--text-color);
 }
 
-.text__title{ font-size: 1.98rem; }
-
-.text__subtitle{
-    text-transform: uppercase;
-    font-size: 0.75rem;
-    letter-spacing: 1.5px;
+.text__title {
+  font-size: 1.98rem;
 }
 
-.text__description-options{
-    font-size: 0.78rem;
-    width: 70px;
-    display: flex;
-    gap: 15px;
-    margin: 0 0 4px auto;
-    justify-content: center;
+.text__subtitle {
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
 }
 
-.switch__container{
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    gap: 25px;
+.text__description-options {
+  font-size: 0.78rem;
+  width: 70px;
+  display: flex;
+  gap: 15px;
+  margin: 0 0 4px auto;
+  justify-content: center;
 }
 
-.switch{
-    background-color: var(--bg-switch_keys);
-    display: flex;
-    flex-flow: row nowrap;
-    width: 70px;
-    gap: 5px;
-    border-radius: 22px;
-    align-items: center;
-    height: 25.5px;
-    position: relative;
+.switch__container {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: 25px;
 }
 
-.option-theme{
-    appearance: none;
-    display: block;
-    width: 33.3%;
-    height: 15.5px;
-    border-radius: 50%;
+.switch {
+  background-color: var(--bg-switch_keys);
+  display: flex;
+  flex-flow: row nowrap;
+  width: 70px;
+  gap: 5px;
+  border-radius: 22px;
+  align-items: center;
+  height: 25.5px;
+  position: relative;
 }
 
-.switch-controler{
-    appearance: none;
-    border: none;
-    display: block;
-    width: 15.5px;
-    height: 15.5px;
-    border-radius: 50%;
-    background-color: var(--key-background__toggle_btn-result_theme-1);
-    position: absolute;
-    left: 4.5px;
-    transition: all 0.3s;
+.option-theme {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  display: block;
+  width: 33.3%;
+  height: 15.5px;
+  border-radius: 50%;
 }
 
-.option-theme:nth-of-type(2):checked ~ .switch-controler{
-    transform: translateX(21px);
+.switch-controler {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  display: block;
+  width: 15.5px;
+  height: 15.5px;
+  border-radius: 50%;
+  background-color: var(--bg-btn-result_switch-controler);
+  position: absolute;
+  left: 4.5px;
+  transition: all 0.3s;
 }
 
-.option-theme:nth-of-type(3):checked ~ .switch-controler{
-    transform: translateX(42.5px);
+.option-theme:nth-of-type(2):checked ~ .switch-controler {
+  transform: translateX(21px);
 }
 
-.viewfinder{
-    background-color: var(--bg-screen);
-    color: var(--text-color);
-    font-weight: 700;
-    font-style: normal;
-    font-size: 40.5px;
-    padding: 22.2px 24px 20px 24px;
-    border-radius: 10px;
-    text-align: right;
-    overflow-x: auto;
-    margin-bottom: 23px;
+.option-theme:nth-of-type(3):checked ~ .switch-controler {
+  transform: translateX(42.5px);
 }
 
-.keys{
-    background-color: var(--bg-switch_keys);
-    padding: 24px 24px 24px 24px;
+.viewfinder {
+  background-color: var(--bg-screen);
+  color: var(--text-color);
+  font-weight: 700;
+  font-style: normal;
+  font-size: 40.5px;
+  padding: 22.2px 24px 20px 24px;
+  border-radius: 10px;
+  text-align: right;
+  overflow-x: auto;
+  margin-bottom: 23px;
+}
+
+.keys {
+  background-color: var(--bg-switch_keys);
+  padding: 24px 24px 24px 24px;
+  display: grid;
+  grid-template-columns: repeat(4, 21.5%);
+  column-gap: 12.1px;
+  row-gap: 13px;
+  grid-auto-rows: 64px;
+  border-radius: 10px;
+}
+
+.button {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  padding: 0;
+  margin: 0;
+  display: block;
+  border: none;
+  font-weight: 700;
+  box-sizing: border-box;
+  border-radius: 7px;
+  border-bottom: 4px solid black;
+  padding: 8px 0 0 0;
+}
+
+.button__commons {
+  font-size: 32px;
+  background-color: var(--bg-number_operators);
+  border-color: var(--bg-shadow-numbers_operators);
+  color: var(--colors-text-number_operators);
+}
+
+.button__calculator {
+  padding: 2.5px 0 0 0;
+  font-size: 20px;
+  letter-spacing: -0.1px;
+  background-color: var(--bg-btn-calculators);
+  border-color: var(--colors-shadow-border-btn-calculators);
+  color: var(--colors-text-btn-calculators);
+}
+
+.button__diviser {
+  padding: 8px 0 0 0;
+}
+
+.button__calculator:nth-of-type(17) {
+  grid-column: 1/3;
+}
+
+.button__result {
+  font-size: 20px;
+  padding: 2px 0 0 0;
+  background-color: var(--bg-btn-result_switch-controler);
+  border-color: var(--colors-shadow-border-btn-result);
+  color: var(--text-colors-btn-result);
+  grid-column: 3/5;
+}
+
+/**ACTIVE STATES**/
+.button,
+.switch-controler {
+  cursor: pointer;
+}
+
+.button__result:hover,
+.switch-controler:hover {
+  background-color: var(--colors-hover-switch-controler_btn-result);
+}
+
+.button__calculator:hover {
+  background-color: var(--colors-hover-btn-calculators);
+}
+
+.button__commons:hover {
+  background-color: var(--colors-hover-btn-commons);
+}
+
+/*TODO: para criar o alternador de temas, cada option de data-theme ira atribuir novos valores as variaveis de tema*/
+[data-theme="2"] {
+  /*backgrounds*/
+  --bg-main: var(--main-background_theme-2);
+  --bg-switch_keys: var(--toggle-background__keypad-background_theme-2);
+  --bg-screen: var(--screen-background_theme-2);
+  /*keys*/
+  /*key result*/
+  --bg-btn-result_switch-controler: var(
+    --key-background__toggle_btn-result_theme-2
+  );
+  --colors-shadow-border-btn-result: var(--key-shadow_btn-result_theme-2);
+  --text-colors-btn-result: var(--white-text_theme-2);
+  /*keys commons*/
+  --bg-number_operators: var(--key-background_btn-number_theme-2);
+  --bg-shadow-numbers_operators: var(--key-shadow_btn-number_theme-1);
+  --colors-text-number_operators: var(--colors-btn-number_theme-2);
+  /*keys calculators*/
+  --bg-btn-calculators: var(--key-background_btn-del-reset_theme-2);
+  --colors-shadow-border-btn-calculators: var(
+    --key-shadow_btn-del-reset_theme-2
+  );
+  --colors-text-btn-calculators: var(--white-text_theme-2);
+  /*text*/
+  --text-color: var(--colors-btn-number_theme-2);
+  /*active states*/
+  --colors-hover-switch-controler_btn-result: var(
+    --hover-btn-result_switch-controler
+  );
+  --colors-hover-btn-calculators: var(--hover-btn-calculators);
+  --colors-hover-btn-commons: var(--hover-btn-commons);
+  transition: all 1s;
+}
+
+[data-theme="3"] {
+}
+
+/*TODO: constuir layout desktop*/
+/**BREAKPOINT 540px**/
+@media screen and (min-width: 586px) {
+  .text__description-options {
+    font-size: 0.95rem;
+    margin: 0 0 3.5px auto;
+  }
+
+  .text__title {
+    font-size: 1.95rem;
+    padding: 0 0 0 8px;
+  }
+
+  .main {
+    padding: 92px 23px 29px 23px;
+    max-width: 586px;
+  }
+
+  .viewfinder {
+    font-size: 57px;
+    padding: 32.2px 24px 30px 24px;
+  }
+
+  .keys {
+    padding: 24px 24px 24px 30px;
     display: grid;
     grid-template-columns: repeat(4, 21.5%);
     column-gap: 12.1px;
     row-gap: 13px;
     grid-auto-rows: 64px;
-    border-radius: 10px;
-}
+  }
 
-.button{
-    appearance: none;
-    padding: 0;
-    margin: 0;
-    display: block;
-    border: none;
-    font-weight: 700;
-    box-sizing: border-box;
-    border-radius: 7px;
-    border-bottom: 4px solid black;
-    padding: 8px 0 0 0;
-}
-
-.button__commons{
-    font-size: 32px;
-    background-color: var(--bg-number_operators);
-    border-color: var(--bg-shadow-numbers_operators);
-    color: var(--colors-text-number_operators);
-}
-
-.button__calculator{
-    padding: 2.5px 0 0 0;
-    font-size: 20px;
-    letter-spacing: -0.1px;
-    background-color: var(--bg-btn-calculators);
-    border-color: var(--colors-shadow-border-btn-calculators);
-    color: var(--colors-text-btn-calculators);
-}
-
-.button__diviser{
-    padding: 8px 0 0 0;
-}
-
-.button__calculator:nth-of-type(17){
-    grid-column: 1/3;
-}
-
-.button__result{
-    font-size: 20px;
-    padding: 2px 0 0 0;
-    background-color: var(--bg-btn-result);
-    border-color: var(--colors-shadow-border-btn-result);
-    color: var(--text-colors-btn-result);
-    grid-column: 3/5;
-}
-
-/**ACTIVE STATES**/
-.button, 
-.switch-controler{
-    cursor: pointer;
-}
-
-.button__result:hover, 
-.switch-controler:hover{
-    background-color: var(--colors-hover-switch-controler_btn-result);
-}
-
-.button__calculator:hover{
-    background-color: var(--colors-hover-btn-calculators);
-}
-
-.button__commons:hover{
-    background-color: var(--colors-hover-btn-commons);
-}
-
-/*TODO: para criar o alternador de temas, cada option de data-theme ira atribuir novos valores as variaveis de tema*/
-[data-theme="1"]{
-  
-}
-
-[data-theme="2"]{
-
-}
-
-[data-theme="3"]{
-    
+  /*
+  .header,
+  .viewfinder,
+  .keys{
+    max-width: 540px;
+  }
+  */
 }
