@@ -112,7 +112,7 @@ body {
 }
 
 .main {
-  padding: 27px 23px 29px 23px;
+  padding: 27px 23px 32px 23px;
   max-width: 375px;
   margin: 0 auto;
 }
@@ -292,6 +292,51 @@ body {
   background-color: var(--colors-hover-btn-commons);
 }
 
+
+/**BREAKPOINT 540px DESKTOP**/
+@media screen and (min-width: 586px) {
+  .text__description-options {
+    font-size: 0.95rem;
+    margin: 0 0 3.5px auto;
+  }
+
+  .text__title {
+    font-size: 1.95rem;
+    padding: 0 0 0 8px;
+  }
+
+  .main {
+    padding: 92px 23px 106px 23px;
+    max-width: 586px;
+  }
+
+  .viewfinder {
+    font-size: 57px;
+    padding: 32.2px 24px 30px 24px;
+    margin-bottom: 24px;
+  }
+
+  .keys {
+    padding: 32px 30px 24px 30px;
+    grid-template-columns: repeat(4, 21%);
+    column-gap: 24.8px;
+    row-gap: 24.5px;
+    grid-auto-rows: 63.5px;
+  }
+
+  .button__commons {
+    font-size: 40px;
+    padding: 6.9px 0 0 0;
+  }
+
+  .button__calculator {
+    padding: 3.5px 0 0 0;
+    font-size: 28.5px;
+    letter-spacing: -0.1px;
+  }
+}
+
+
 /*TODO: para criar o alternador de temas, cada option de data-theme ira atribuir novos valores as variaveis de tema*/
 [data-theme="2"] {
   /*backgrounds*/
@@ -326,46 +371,6 @@ body {
   transition: all 1s;
 }
 
+/*TODO: aplicar variaveis do thema 3 nas variaveis de thema para o tema 3*/
 [data-theme="3"] {
-}
-
-/*TODO: constuir layout desktop*/
-/**BREAKPOINT 540px**/
-@media screen and (min-width: 586px) {
-  .text__description-options {
-    font-size: 0.95rem;
-    margin: 0 0 3.5px auto;
-  }
-
-  .text__title {
-    font-size: 1.95rem;
-    padding: 0 0 0 8px;
-  }
-
-  .main {
-    padding: 92px 23px 29px 23px;
-    max-width: 586px;
-  }
-
-  .viewfinder {
-    font-size: 57px;
-    padding: 32.2px 24px 30px 24px;
-  }
-
-  .keys {
-    padding: 24px 24px 24px 30px;
-    display: grid;
-    grid-template-columns: repeat(4, 21.5%);
-    column-gap: 12.1px;
-    row-gap: 13px;
-    grid-auto-rows: 64px;
-  }
-
-  /*
-  .header,
-  .viewfinder,
-  .keys{
-    max-width: 540px;
-  }
-  */
 }
