@@ -1,5 +1,7 @@
 "use strict";
 
+import {initCalculator} from "./calculator.js";
+
 function initToggleTheme() {
     let btnRadios = document.querySelectorAll('input[type="radio"]');
     //cada vez que um radio for checked change e acionado
@@ -8,12 +10,14 @@ function initToggleTheme() {
         //obtem preferencia de tema
         //define este tema
         setOptionTheme(getOptionTheme());
-        alert(`${event.target.id} changed to value =  ${event.target.value}`);
+        //TODO: salvar escolha de tema no localStorage do navegador
+        //alert(`${event.target.id} changed to value =  ${event.target.value}`);
       });
     });
 }
 
 initToggleTheme();
+initCalculator();
 
 function getOptionTheme() {
     let optionTheme = document.querySelector(".option-theme:checked");
