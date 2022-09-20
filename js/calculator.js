@@ -2,7 +2,8 @@
 
 let screen = document.querySelector(".viewfinder");
 let operationAritmetic = [];
-let operator1 = '', operator2 = '', operation = '';
+let previousNumberBeforeClick = '', nextPostClickNumber = '', operation = null, result = null;
+
 
 export function initCalculator() {
   let buttonCommons = document.querySelectorAll(".button");
@@ -19,15 +20,45 @@ export function initCalculator() {
   });
 }
 
+/*TODO: tratar as operações de divisão para não retornar Infinity, NaN, ou value de erro
+Apos serie de operações seguidas gera erro, porque?
+*/
 function handleClickBtn(event) {
     if (event.target.value != "DEL" || event.target.value != "RESET" || event.target.value != "=") {
-        if(event.target.value.match(/[0-9.]/)) {
-            operator1 = operator1 + event.target.value;
+        if (
+          event.target.value === "+" ||
+          event.target.value === "-" ||
+          event.target.value === "x" ||
+          event.target.value === "/"
+        ) {
+          if(operation != null) {
+            result = calculator();
+            operation = event.target.value;
+            previousNumberBeforeClick = result;
+            nextPostClickNumber = '';
+            clearScreen();
+            setUpdateScreen(previousNumberBeforeClick.toString() + operation);
+            return;
+          }else{
+            operation = event.target.value;
+            setUpdateScreen(event.target.value);
+            return;
+          }
         }
-        //operationAritmetic.push(event.target.value);
+
+        if(operation === null) {
+          previousNumberBeforeClick = previousNumberBeforeClick + event.target.value;
+        }
+
+        if(operation != null) {
+          nextPostClickNumber = nextPostClickNumber + event.target.value;
+        }
+        
+        console.log('previousNumber: ' + previousNumberBeforeClick);
+        console.log('operation: ' + operation);
+        console.log('nextNumber: ' + nextPostClickNumber);
     }
-    console.log(event.target.value);
-    console.log(operationAritmetic);
+
     setUpdateScreen(event.target.value);
 }
 
@@ -35,20 +66,43 @@ function setUpdateScreen(value) {
   screen.innerHTML = screen.innerHTML + value.trim();
 }
 
-function handlerBtnResult(event) {
-    console.log('Calcular resultado');
-    //verifica se possui dados para ser realizada operação
-    if(operationAritmetic.length > 0) {
-        let str = operationAritmetic.join('');
-        //console.log(str.split(/[-+x\/]/));
-        for (let index = 0; index < str.length; index++) {
-            console.log(str[index]); 
-        }
-    }
+function clearScreen() {
+  screen.innerHTML = '';
 }
 
-function calculator(leftOperator, operation, rightOperator) {
+function clearValuesOperators() {
+  previousNumberBeforeClick = '';
+  nextPostClickNumber = '';
+  operation = null;
+}
 
+function handlerBtnResult(event) {
+   calculator();
+}
+
+function calculator() {
+  if(previousNumberBeforeClick != '' && operation != null && nextPostClickNumber != '') {
+    console.log(
+      `${previousNumberBeforeClick} ${operation} ${nextPostClickNumber} = ${operationsCalculator(
+        parseInt(previousNumberBeforeClick, 10),
+        operation,
+        parseInt(nextPostClickNumber, 10)
+      )}`
+    );
+
+    let result = operationsCalculator(
+      parseInt(previousNumberBeforeClick, 10),
+      operation,
+      parseInt(nextPostClickNumber, 10)
+    );
+
+    clearScreen();
+    setUpdateScreen(result.toString());
+
+    return result;
+  }else{
+    console.log('calculator informa que não ha numeros suficientes na operação previousNumber: ' + previousNumberBeforeClick + " / operation = " + operation + " / " + "nextNumber: " + nextPostClickNumber);
+  }
 }
 
 function deleteOperatorScreen(event) {
@@ -63,3 +117,25 @@ function deleteOperatorScreen(event) {
     }
   }
 }
+
+function operationsCalculator(numberA, operation, numberB) {
+  let result = null;
+  switch(operation) {
+    case '+':
+      result = numberA + numberB;
+      break;
+    case '-':
+      result = numberA - numberB;
+      break;
+    case '/':
+      result = numberA / numberB;
+      break;
+    case 'x':
+      result = numberA * numberB;
+      break;
+  }
+  return result;
+}
+
+
+
