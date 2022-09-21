@@ -24,6 +24,9 @@ export function initCalculator() {
 Apos serie de operações seguidas gera erro, porque?
 */
 function handleClickBtn(event) {
+    if(screen.textContent.trim() === "399,981")
+      clearScreen();
+
     if (event.target.value != "DEL" || event.target.value != "RESET" || event.target.value != "=") {
         if (
           event.target.value === "+" ||
@@ -33,6 +36,12 @@ function handleClickBtn(event) {
         ) {
           if(operation != null) {
             result = calculator();
+            if(result === null) {
+              alert('Operation invalid!');
+              clearValuesOperators();
+              clearScreen();
+              return;
+            }
             operation = event.target.value;
             previousNumberBeforeClick = result;
             nextPostClickNumber = '';
@@ -96,26 +105,77 @@ function calculator() {
       parseInt(nextPostClickNumber, 10)
     );
 
-    clearScreen();
-    setUpdateScreen(result.toString());
-
-    return result;
+    if(result != Infinity && isNaN(result) === false) {
+      clearScreen();
+      setUpdateScreen(result.toString());
+      return result;
+    }else{
+      alert('Operation invalid! Entry with numbers.');
+      clearValuesOperators();
+      clearScreen();
+      return null;
+    }
   }else{
     console.log('calculator informa que não ha numeros suficientes na operação previousNumber: ' + previousNumberBeforeClick + " / operation = " + operation + " / " + "nextNumber: " + nextPostClickNumber);
+    return null;
   }
 }
 
 function deleteOperatorScreen(event) {
   //verificar se foi clicado DEL ou RESET
   if (event.target.value === "DEL") {
-    if (screen.textContent != "" || screen.textContent.length > 0) {
-      let text = Array.from(screen.textContent.trim());
-      text.pop();
-      screen.textContent = text.join('');
+    if ((screen.textContent != "" && screen.textContent.length > 0 ) && (previousNumberBeforeClick != '' || nextPostClickNumber != '')) {
+      deleteCharScreen();
     }else{
-        screen.textContent = "0";
+        alert("There are no operators to delete");
     }
   }
+}
+
+function deleteCharScreen() {
+  let textScreen = Array.from(screen.textContent.trim());
+  textScreen.pop();
+  screen.textContent = textScreen.join("");
+  
+  if(nextPostClickNumber != '') {
+    console.log(
+      `nextNumber anterior: ${nextPostClickNumber} lenght: ${nextPostClickNumber.length}`
+    );
+    let newNextNumber = Array.from(nextPostClickNumber);
+    newNextNumber.pop();
+    nextPostClickNumber = newNextNumber.join("");
+    console.log(
+      `nextNumber atual: ${nextPostClickNumber} lenght: ${nextPostClickNumber.length}`
+    );
+    return;
+  }
+
+  if(operation != '' && operation != null) {
+    console.log(
+      `operation: ${operation} lenght: ${operation.length}`
+    );
+    let newOperation = Array.from(operation);
+    newOperation.pop();
+    operation = newOperation.join() === '' ? null : newOperation.join();
+    console.log(
+      `operation apos excluido: ${operation} lenght: ${operation?.length}`
+    );
+    return;
+  }
+
+  if(previousNumberBeforeClick != '') {
+    console.log(
+      `previousNumber: ${previousNumberBeforeClick} lenght: ${previousNumberBeforeClick.length}`
+    );
+    let newPreviousNumber = Array.from(previousNumberBeforeClick);
+    newPreviousNumber.pop();
+    previousNumberBeforeClick = newPreviousNumber.join("");
+    console.log(
+      `previous Number apos excluido: ${previousNumberBeforeClick} lenght: ${previousNumberBeforeClick.length}`
+    );
+    return;
+  }
+  
 }
 
 function operationsCalculator(numberA, operation, numberB) {
