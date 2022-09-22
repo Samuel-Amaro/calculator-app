@@ -1,73 +1,80 @@
 "use strict";
 
 let screen = document.querySelector(".viewfinder");
-let previousNumberBeforeClick = '', nextPostClickNumber = '', operation = null, result = null;
-
+let previousNumberBeforeClick = "",
+  nextPostClickNumber = "",
+  operation = null,
+  result = null;
 
 export function initCalculator() {
-  let buttonCommons = document.querySelectorAll(".button");
-  buttonCommons.forEach((button) => {
+  let buttons = document.querySelectorAll(".button");
+  buttons.forEach((button) => {
     if (button.classList.contains("button__commons")) {
       button.addEventListener("pointerdown", handleClickBtn);
     }
     if (button.classList.contains("button__calculator")) {
       button.addEventListener("pointerdown", deleteOperatorScreen);
     }
-    if(button.classList.contains("button__result")) {
-        button.addEventListener("pointerdown", handlerBtnResult);
+    if (button.classList.contains("button__result")) {
+      button.addEventListener("pointerdown", handlerBtnResult);
     }
   });
+  document.addEventListener("keydown", handlerKeyButton);
 }
 
-/*TODO: tratar as operações de divisão para não retornar Infinity, NaN, ou value de erro
-Apos serie de operações seguidas gera erro, porque?
-*/
 function handleClickBtn(event) {
-    if(screen.textContent.trim() === "399,981")
-      clearScreen();
+  if (screen.textContent.trim() === "399,981") clearScreen();
 
-    if (event.target.value != "DEL" || event.target.value != "RESET" || event.target.value != "=") {
-        if (
-          event.target.value === "+" ||
-          event.target.value === "-" ||
-          event.target.value === "x" ||
-          event.target.value === "/"
-        ) {
-          if(operation != null) {
-            result = calculator();
-            if(result === null) {
-              alert('Operation invalid!');
-              clearValuesOperators();
-              clearScreen();
-              return;
-            }
-            operation = event.target.value;
-            previousNumberBeforeClick = result;
-            nextPostClickNumber = '';
-            clearScreen();
-            setUpdateScreen(previousNumberBeforeClick.toString() + operation);
-            return;
-          }else{
-            operation = event.target.value;
-            setUpdateScreen(event.target.value);
-            return;
-          }
+  if (
+    event.target.value != "DEL" ||
+    event.target.value != "RESET" ||
+    event.target.value != "="
+  ) {
+    if (
+      event.target.value === "+" ||
+      event.target.value === "-" ||
+      event.target.value === "x" ||
+      event.target.value === "/"
+    ) {
+      if (operation != null) {
+        result = calculator();
+        if (result === null) {
+          alert("Operation invalid!");
+          clearValuesOperators();
+          clearScreen();
+          return;
         }
-
-        if(operation === null) {
-          previousNumberBeforeClick = previousNumberBeforeClick + event.target.value;
-        }
-
-        if(operation != null) {
-          nextPostClickNumber = nextPostClickNumber + event.target.value;
-        }
-        
-        console.log('previousNumber: ' + previousNumberBeforeClick);
-        console.log('operation: ' + operation);
-        console.log('nextNumber: ' + nextPostClickNumber);
+        operation = event.target.value;
+        previousNumberBeforeClick = result;
+        nextPostClickNumber = "";
+        clearScreen();
+        setUpdateScreen(previousNumberBeforeClick.toString() + operation);
+        return;
+      } else {
+        operation = event.target.value;
+        setUpdateScreen(event.target.value);
+        return;
+      }
     }
 
-    setUpdateScreen(event.target.value);
+    if (operation === null) {
+      previousNumberBeforeClick =
+        previousNumberBeforeClick + event.target.value;
+    }
+
+    if (operation != null) {
+      nextPostClickNumber = nextPostClickNumber + event.target.value;
+    }
+
+    /*console.log("previousNumber: " + previousNumberBeforeClick);
+    console.log("operation: " + operation);
+    console.log("nextNumber: " + nextPostClickNumber);
+    */
+    
+  }
+
+  setUpdateScreen(event.target.value);
+
 }
 
 function setUpdateScreen(value) {
@@ -75,21 +82,28 @@ function setUpdateScreen(value) {
 }
 
 function clearScreen() {
-  screen.innerHTML = '';
+  screen.innerHTML = "";
 }
 
 function clearValuesOperators() {
-  previousNumberBeforeClick = '';
-  nextPostClickNumber = '';
+  previousNumberBeforeClick = "";
+  nextPostClickNumber = "";
   operation = null;
 }
 
 function handlerBtnResult(event) {
-   calculator();
+  let result = calculator();
+  previousNumberBeforeClick = result === null ? '' : result;
+  operation = null;
+  nextPostClickNumber = "";
 }
 
 function calculator() {
-  if(previousNumberBeforeClick != '' && operation != null && nextPostClickNumber != '') {
+  if (
+    previousNumberBeforeClick != "" &&
+    operation != null &&
+    nextPostClickNumber != ""
+  ) {
     let numberPrevios = previousNumberBeforeClick.includes(".")
       ? parseFloat(previousNumberBeforeClick)
       : parseInt(previousNumberBeforeClick);
@@ -97,13 +111,14 @@ function calculator() {
       ? parseFloat(nextPostClickNumber)
       : parseInt(nextPostClickNumber);
 
-    console.log(
+    /*console.log(
       `${previousNumberBeforeClick} ${operation} ${nextPostClickNumber} = ${operationsCalculator(
         numberPrevios,
         operation,
         nextNumber
       )}`
     );
+    */
 
     let result = operationsCalculator(numberPrevios, operation, nextNumber);
 
@@ -117,24 +132,32 @@ function calculator() {
       clearScreen();
       return null;
     }
-  }else{
-    console.log('calculator informa que não ha numeros suficientes na operação previousNumber: ' + previousNumberBeforeClick + " / operation = " + operation + " / " + "nextNumber: " + nextPostClickNumber);
+  } else {
+    alert(
+      "calculator reports that there are not enough numbers in the operation"
+    );
+    clearScreen();
+    clearValuesOperators();
     return null;
   }
 }
 
 function deleteOperatorScreen(event) {
-  //verificar se foi clicado DEL ou RESET
-  if (event.target.value === "DEL") {
-    if ((screen.textContent != "" && screen.textContent.length > 0 ) && (previousNumberBeforeClick != '' || nextPostClickNumber != '')) {
+  //verificar se foi clicado DEL ou RESET para click ou Delete ou Backspace digitado
+  if (event?.target.value === "DEL" || event?.key === "Backspace") {
+    if (
+      screen.textContent != "" &&
+      screen.textContent.length > 0 &&
+      (previousNumberBeforeClick != "" || nextPostClickNumber != "")
+    ) {
       deleteCharScreen();
-    }else{
-        alert("There are no operators to delete");
-        clearScreen();
-        clearValuesOperators();
+    } else {
+      alert("There are no operators to delete");
+      clearScreen();
+      clearValuesOperators();
     }
-  }else{
-    //CLICOU "RESET"
+  } else {
+    //CLICOU "RESET" ou digitou "Delete"
     clearScreen();
     clearValuesOperators();
   }
@@ -142,57 +165,71 @@ function deleteOperatorScreen(event) {
 
 function deleteCharScreen() {
   let textScreen = Array.from(screen.textContent.trim());
+
   //saber se eu estou deletando uma operação ou resultado
-  let valueCurrentOperation = calculator(
+  /*let valueCurrentOperation = calculator(
     parseInt(previousNumberBeforeClick),
     operation,
     parseInt(nextPostClickNumber)
   );
 
-  //variaveis controladores das operações e screen são iguais
-  if (textScreen.join("") === String(valueCurrentOperation)) {
+  //irei deletar valores de um resultado
+  if(valueCurrentOperation === null) {
     previousNumberBeforeClick = textScreen.join("");
     nextPostClickNumber = "";
     operation = null;
   }
+  */
+  //variaveis controladores das operações e screen são iguais
+  /*if (textScreen.join("") === String(valueCurrentOperation)) {
+    previousNumberBeforeClick = textScreen.join("");
+    nextPostClickNumber = "";
+    operation = null;
+  }*/
 
   textScreen.pop();
   screen.textContent = textScreen.join("");
 
   if (nextPostClickNumber != "") {
-    console.log(
+    /*console.log(
       `nextNumber anterior: ${nextPostClickNumber} lenght: ${nextPostClickNumber.length}`
     );
+    */
     let newNextNumber = Array.from(nextPostClickNumber);
     newNextNumber.pop();
     nextPostClickNumber = newNextNumber.join("");
-    console.log(
+    /*console.log(
       `nextNumber atual: ${nextPostClickNumber} lenght: ${nextPostClickNumber.length}`
     );
+    */
     return;
   }
 
   if (operation != "" && operation != null) {
-    console.log(`operation: ${operation} lenght: ${operation.length}`);
+    /*console.log(`operation: ${operation} lenght: ${operation.length}`);*/
     let newOperation = Array.from(operation);
     newOperation.pop();
     operation = newOperation.join() === "" ? null : newOperation.join();
-    console.log(
+    /*console.log(
       `operation apos excluido: ${operation} lenght: ${operation?.length}`
     );
+    */
     return;
   }
 
   if (previousNumberBeforeClick != "") {
+    /*
     console.log(
       `previousNumber: ${previousNumberBeforeClick} lenght: ${previousNumberBeforeClick.length}`
     );
+    */
     let newPreviousNumber = Array.from(previousNumberBeforeClick);
     newPreviousNumber.pop();
     previousNumberBeforeClick = newPreviousNumber.join("");
-    console.log(
+    /*console.log(
       `previous Number apos excluido: ${previousNumberBeforeClick} lenght: ${previousNumberBeforeClick.length}`
     );
+    */
     return;
   }
 
@@ -202,7 +239,7 @@ function deleteCharScreen() {
       previousNumberBeforeClick === "") ||
     screen.textContent.trim().length === 1
   ) {
-    console.log("So possui 1 char na screen");
+    /*console.log("So possui 1 char na screen");*/
     clearScreen();
     clearValuesOperators();
     return;
@@ -211,22 +248,105 @@ function deleteCharScreen() {
 
 function operationsCalculator(numberA, operation, numberB) {
   let result = null;
-  switch(operation) {
-    case '+':
+  switch (operation) {
+    case "+":
       result = numberA + numberB;
       break;
-    case '-':
+    case "-":
       result = numberA - numberB;
       break;
-    case '/':
+    case "/":
       result = numberA / numberB;
       break;
-    case 'x':
+    case "x":
       result = numberA * numberB;
       break;
   }
   return result;
 }
 
+function handlerKeyButton(event) {
+  let keys = [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "-",
+    "+",
+    "=",
+    "x",
+    "/",
+    ".",
+    "Delete", //Reset
+    "Enter", // =
+    "Backspace", //delete 1 char
+  ];
+  /*TODO: atribuir handler a outros buttons key*/
+  if (keys.includes(event.key)) {
+    if (screen.textContent.trim() === "399,981") clearScreen();
 
+    //se não vou deletar, resetar ou obter resultado, vou informar um numero
+    if (event.key != "Delete" && event.key != "Backspace" && event.key != "=" && event.key != "Enter") {
+      controlerCalculatorKey(event.key);
+      event.preventDefault();
+    } else {
 
+      //vou resetar operação ou deletar um numero
+      if (event.key === "Delete" || event.key === "Backspace") {
+        deleteOperatorScreen(event);
+      }
+
+      //obter resultado
+      if(event.key === "=" || event.key === "Enter") {
+        handlerBtnResult(event);
+      } 
+
+    }
+  }
+}
+
+function controlerCalculatorKey(value) {
+  if (value === "+" || value === "-" || value === "x" || value === "/") {
+    if (operation != null) {
+      result = calculator();
+      if (result === null) {
+        alert("Operation invalid!");
+        clearValuesOperators();
+        clearScreen();
+        return;
+      }
+      operation = value;
+      previousNumberBeforeClick = result;
+      nextPostClickNumber = "";
+      clearScreen();
+      setUpdateScreen(previousNumberBeforeClick.toString() + operation);
+      return;
+    } else {
+      operation = value;
+      setUpdateScreen(value);
+      return;
+    }
+  }
+
+  if (operation === null) {
+    previousNumberBeforeClick = previousNumberBeforeClick + value;
+  }
+
+  if (operation != null) {
+    nextPostClickNumber = nextPostClickNumber + value;
+  }
+
+  /*
+  console.log("previousNumber: " + previousNumberBeforeClick);
+  console.log("operation: " + operation);
+  console.log("nextNumber: " + nextPostClickNumber);
+  */
+
+  setUpdateScreen(value);
+}
