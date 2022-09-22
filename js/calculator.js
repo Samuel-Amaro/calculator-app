@@ -1,7 +1,6 @@
 "use strict";
 
 let screen = document.querySelector(".viewfinder");
-let operationAritmetic = [];
 let previousNumberBeforeClick = '', nextPostClickNumber = '', operation = null, result = null;
 
 
@@ -91,26 +90,29 @@ function handlerBtnResult(event) {
 
 function calculator() {
   if(previousNumberBeforeClick != '' && operation != null && nextPostClickNumber != '') {
+    let numberPrevios = previousNumberBeforeClick.includes(".")
+      ? parseFloat(previousNumberBeforeClick)
+      : parseInt(previousNumberBeforeClick);
+    let nextNumber = nextPostClickNumber.includes(".")
+      ? parseFloat(nextPostClickNumber)
+      : parseInt(nextPostClickNumber);
+
     console.log(
       `${previousNumberBeforeClick} ${operation} ${nextPostClickNumber} = ${operationsCalculator(
-        parseInt(previousNumberBeforeClick, 10),
+        numberPrevios,
         operation,
-        parseInt(nextPostClickNumber, 10)
+        nextNumber
       )}`
     );
 
-    let result = operationsCalculator(
-      parseInt(previousNumberBeforeClick, 10),
-      operation,
-      parseInt(nextPostClickNumber, 10)
-    );
+    let result = operationsCalculator(numberPrevios, operation, nextNumber);
 
-    if(result != Infinity && isNaN(result) === false) {
+    if (result != Infinity && isNaN(result) === false) {
       clearScreen();
       setUpdateScreen(result.toString());
-      return result;
-    }else{
-      alert('Operation invalid! Entry with numbers.');
+      return String(result);
+    } else {
+      alert("Operation invalid! Entry with numbers.");
       clearValuesOperators();
       clearScreen();
       return null;
@@ -128,16 +130,36 @@ function deleteOperatorScreen(event) {
       deleteCharScreen();
     }else{
         alert("There are no operators to delete");
+        clearScreen();
+        clearValuesOperators();
     }
+  }else{
+    //CLICOU "RESET"
+    clearScreen();
+    clearValuesOperators();
   }
 }
 
 function deleteCharScreen() {
   let textScreen = Array.from(screen.textContent.trim());
+  //saber se eu estou deletando uma operação ou resultado
+  let valueCurrentOperation = calculator(
+    parseInt(previousNumberBeforeClick),
+    operation,
+    parseInt(nextPostClickNumber)
+  );
+
+  //variaveis controladores das operações e screen são iguais
+  if (textScreen.join("") === String(valueCurrentOperation)) {
+    previousNumberBeforeClick = textScreen.join("");
+    nextPostClickNumber = "";
+    operation = null;
+  }
+
   textScreen.pop();
   screen.textContent = textScreen.join("");
-  
-  if(nextPostClickNumber != '') {
+
+  if (nextPostClickNumber != "") {
     console.log(
       `nextNumber anterior: ${nextPostClickNumber} lenght: ${nextPostClickNumber.length}`
     );
@@ -150,20 +172,18 @@ function deleteCharScreen() {
     return;
   }
 
-  if(operation != '' && operation != null) {
-    console.log(
-      `operation: ${operation} lenght: ${operation.length}`
-    );
+  if (operation != "" && operation != null) {
+    console.log(`operation: ${operation} lenght: ${operation.length}`);
     let newOperation = Array.from(operation);
     newOperation.pop();
-    operation = newOperation.join() === '' ? null : newOperation.join();
+    operation = newOperation.join() === "" ? null : newOperation.join();
     console.log(
       `operation apos excluido: ${operation} lenght: ${operation?.length}`
     );
     return;
   }
 
-  if(previousNumberBeforeClick != '') {
+  if (previousNumberBeforeClick != "") {
     console.log(
       `previousNumber: ${previousNumberBeforeClick} lenght: ${previousNumberBeforeClick.length}`
     );
@@ -175,7 +195,18 @@ function deleteCharScreen() {
     );
     return;
   }
-  
+
+  if (
+    (nextPostClickNumber === "" &&
+      operation === "" &&
+      previousNumberBeforeClick === "") ||
+    screen.textContent.trim().length === 1
+  ) {
+    console.log("So possui 1 char na screen");
+    clearScreen();
+    clearValuesOperators();
+    return;
+  }
 }
 
 function operationsCalculator(numberA, operation, numberB) {
