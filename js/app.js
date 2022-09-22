@@ -2,16 +2,17 @@
 
 import {initCalculator} from "./calculator.js";
 
+window.addEventListener("load", event => {
+  toggleTheme(localStorage.getItem("theme"));
+});
+
 function initToggleTheme() {
+    //define option theme default
+    localStorage.setItem("theme", 1);
     let btnRadios = document.querySelectorAll('input[type="radio"]');
-    //cada vez que um radio for checked change e acionado
     btnRadios.forEach(radioButton => {
       radioButton.addEventListener("change", (event) => {
-        //obtem preferencia de tema
-        //define este tema
         setOptionTheme(getOptionTheme());
-        //TODO: salvar escolha de tema no localStorage do navegador
-        //alert(`${event.target.id} changed to value =  ${event.target.value}`);
       });
     });
 }
@@ -27,4 +28,10 @@ function getOptionTheme() {
 function setOptionTheme(themeOption) {
     let body = document.body;
     body.dataset.theme = themeOption;
+    localStorage.setItem("theme", themeOption);
+}
+
+function toggleTheme(themeOption) {
+  let body = document.body;
+  body.dataset.theme = themeOption;
 }
