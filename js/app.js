@@ -7,8 +7,10 @@ window.addEventListener("load", event => {
 });
 
 function initToggleTheme() {
-    //define option theme default
-    localStorage.setItem("theme", 1);
+    //define option theme default escolhido anteriromente se tiver definido
+    if(localStorage.getItem("theme") != null) {
+        setOptionTheme(getOptionTheme());
+    }
     let btnRadios = document.querySelectorAll('input[type="radio"]');
     btnRadios.forEach(radioButton => {
       radioButton.addEventListener("change", (event) => {

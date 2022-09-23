@@ -342,6 +342,125 @@ body {
   }
 }
 
+@media screen and (max-width: 300px) {
+  .keys {
+    padding: 24px 24px 24px 24px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: "key7 key8 key9" 
+      "keyDELL key4 key5"
+      "key6 keymais key1"
+      "key2 key3 keyminus"
+      "keypointer keyzero keydiviser"
+      "keymultiply keyreset keyreset"
+      "keyequals keyequals keyequals";
+    grid-auto-rows: 64px;
+    column-gap: 12.1px;
+    row-gap: 13px;
+    border-radius: 10px;
+  }
+
+  .button[value="7"] {
+    grid-area: key7;
+  }
+
+  .button[value="8"] {
+    grid-area: key8;
+  }
+
+  .button[value="9"] {
+    grid-area: key9;
+  }
+
+  .button[value="DEL"] {
+    grid-area: keyDELL;
+  }
+
+  .button[value="4"] {
+    grid-area: key4;
+  }
+
+  .button[value="5"] {
+    grid-area: key5;
+  }
+
+  .button[value="6"] {
+    grid-area: key6;
+  }
+
+  .button[value="+"] {
+    grid-area: keymais;
+  }
+
+  .button[value="1"] {
+    grid-area: key1;
+  }
+
+  .button[value="2"] {
+    grid-area: key2;
+  }
+
+  .button[value="3"] {
+    grid-area: key3;
+  }
+
+  .button[value="-"] {
+    grid-area: keyminus;
+  }
+
+  .button[value="."] {
+    grid-area: keypointer;
+  }
+
+  .button[value="0"] {
+    grid-area: keyzero;
+  }
+
+  .button[value="/"] {
+    grid-area: keydiviser;
+  }
+
+  .button[value="x"] {
+    grid-area: keymultiply;
+  }
+
+  .button[value="RESET"] {
+    grid-area: keyreset;
+  }
+
+  .button[value="="] {
+    grid-area: keyequals;
+  }
+}
+
+/*theme 1*/
+[data-theme="1"] {
+  /**THEME VARIABLES WITH VALUES THEME 1**/
+  --text-color: var(--white-text_theme-1);
+  --bg-main: var(--main-background_theme-1);
+  --bg-switch_keys: var(--toggle-background__keypad-background_theme-1);
+  --bg-screen: var(--screen-background_theme-1);
+  --colors-text-number_operators: var(--colors-btn-number_theme-1);
+  --bg-number_operators: var(--key-background_btn-number_theme-1);
+  --bg-shadow-numbers_operators: var(--key-shadow_btn-number_theme-1);
+  --colors-text-btn-calculators: var(--white-text_theme-1);
+  --bg-btn-calculators: var(--key-background_btn-del-reset_theme-1);
+  --colors-shadow-border-btn-calculators: var(
+    --key-shadow_btn-del-reset_theme-1
+  );
+  --bg-btn-result_switch-controler: var(
+    --key-background__toggle_btn-result_theme-1
+  );
+  --text-colors-btn-result: var(--white-text_theme-1);
+  --colors-shadow-border-btn-result: var(--key-shadow_btn-result_theme-1);
+  --colors-hover-switch-controler_btn-result: var(
+    --bg-color-switch-controler__btn-result
+  );
+  --colors-hover-btn-calculators: var(--bg-color-buttons-calculator);
+  --colors-hover-btn-commons: var(--white-text_theme-1);
+  transition: all 1s;
+}
+
 /*theme 2*/
 [data-theme="2"] {
   /*backgrounds*/
@@ -416,34 +535,25 @@ body {
   transition: all 1s;
 }
 
-/*TODO: para obter cores light pegar cada seletor de class dos elementos e colocar dentro do media corepondende com a variavel de cor correta*/
 @media (prefers-color-scheme: light) {
-  /*theme 2*/
   :root {
-    /*backgrounds*/
     --bg-main: var(--main-background_theme-2);
     --bg-switch_keys: var(--toggle-background__keypad-background_theme-2);
     --bg-screen: var(--screen-background_theme-2);
-    /*keys*/
-    /*key result*/
     --bg-btn-result_switch-controler: var(
       --key-background__toggle_btn-result_theme-2
     );
     --colors-shadow-border-btn-result: var(--key-shadow_btn-result_theme-2);
     --text-colors-btn-result: var(--white-text_theme-2);
-    /*keys commons*/
     --bg-number_operators: var(--key-background_btn-number_theme-2);
     --bg-shadow-numbers_operators: var(--key-shadow_btn-number_theme-1);
     --colors-text-number_operators: var(--colors-btn-number_theme-2);
-    /*keys calculators*/
     --bg-btn-calculators: var(--key-background_btn-del-reset_theme-2);
     --colors-shadow-border-btn-calculators: var(
       --key-shadow_btn-del-reset_theme-2
     );
     --colors-text-btn-calculators: var(--white-text_theme-2);
-    /*text*/
     --text-color: var(--colors-btn-number_theme-2);
-    /*active states*/
     --colors-hover-switch-controler_btn-result: var(
       --hover-btn-result_switch-controler
     );
@@ -451,12 +561,67 @@ body {
     --colors-hover-btn-commons: var(--hover-btn-commons);
     transition: all 1s;
   }
+  /*
+  body {
+    background-color: var(--main-background_theme-2);
+  }
+
+  .text {
+    color: var(--colors-btn-number_theme-2);
+  }
+
+  .switch {
+    background-color: var(--toggle-background__keypad-background_theme-2);
+  }
+
+  .switch-controler {
+    background-color: var(--key-background__toggle_btn-result_theme-2);
+  }
+
+  .viewfinder {
+    background-color: var(--screen-background_theme-2);
+    color: var(--colors-btn-number_theme-2);
+  }
+
+  .keys {
+    background-color: var(--toggle-background__keypad-background_theme-2);
+  }
+
+  .button__commons {
+    background-color: var(--key-background_btn-number_theme-2);
+    border-color: var(--key-shadow_btn-number_theme-1);
+    color: var(--colors-btn-number_theme-2);
+  }
+
+  .button__calculator {
+    background-color: var(--key-background_btn-del-reset_theme-2);
+    border-color: var(--key-shadow_btn-del-reset_theme-2);
+    color: var(--white-text_theme-2);
+  }
+
+  .button__result {
+    background-color: var(--key-background__toggle_btn-result_theme-2);
+    border-color: var(--key-shadow_btn-result_theme-2);
+    color: var(--white-text_theme-2);
+  }
+
+  .button__result:hover,
+  .switch-controler:hover {
+    background-color: var(--hover-btn-result_switch-controler);
+  }
+
+  .button__calculator:hover {
+    background-color: var(--hover-btn-calculators);
+  }
+
+  .button__commons:hover {
+    background-color: var(--hover-btn-commons);
+  }
+  */
 }
 
 @media (prefers-color-scheme: dark) {
-  /*theme 3*/
   :root {
-    /*backgrounds*/
     --bg-main: var(--main-background_theme-3);
     --bg-switch_keys: var(
       --toggle-background__keypad-background__screen-background_theme-3
@@ -464,28 +629,22 @@ body {
     --bg-screen: var(
       --toggle-background__keypad-background__screen-background_theme-3
     );
-    /*keys*/
-    /*key result*/
     --bg-btn-result_switch-controler: var(
       --key-background__toggle_btn-result_theme-3
     );
     --colors-shadow-border-btn-result: var(--key-shadow_btn-result_theme-3);
     --text-colors-btn-result: var(--colors-btn-text-result_theme-3);
-    /*keys commons*/
     --bg-number_operators: var(--key-background_btn-numbers_theme-3);
     --bg-shadow-numbers_operators: var(--key-shadow_btn-numbers_theme-3);
     --colors-text-number_operators: var(
       --colors-btn-text-numbers-result_text_theme-3
     );
-    /*keys calculators*/
     --bg-btn-calculators: var(--key-background_btn-del-reset_theme-3);
     --colors-shadow-border-btn-calculators: var(
       --key-shadow_btn-del-reset-theme-3
     );
     --colors-text-btn-calculators: var(--white-text_theme-3);
-    /*text*/
     --text-color: var(--colors-btn-text-numbers-result_text_theme-3);
-    /*active states*/
     --colors-hover-switch-controler_btn-result: var(
       --hover-btn-result_switch-controler-theme03
     );
@@ -493,4 +652,60 @@ body {
     --colors-hover-btn-commons: var(--hover-btn-commons-theme03);
     transition: all 1s;
   }
+  /*body {
+    background-color: var(--main-background_theme-3);
+  }
+
+  .text {
+    color: var(--colors-btn-text-numbers-result_text_theme-3);
+  }
+
+  .switch {
+    background-color: var(--toggle-background__keypad-background__screen-background_theme-3);
+  }
+
+  .switch-controler {
+    background-color: var(--key-background__toggle_btn-result_theme-3);
+  }
+
+  .viewfinder {
+    background-color: var(--toggle-background__keypad-background__screen-background_theme-3);
+    color: var(--colors-btn-text-numbers-result_text_theme-3);
+  }
+
+  .keys {
+    background-color: var(--toggle-background__keypad-background__screen-background_theme-3);
+  }
+
+  .button__commons {
+    background-color: var(--key-background_btn-numbers_theme-3);
+    border-color: var(--key-shadow_btn-numbers_theme-3);
+    color: var(--colors-btn-text-numbers-result_text_theme-3);
+  }
+
+  .button__calculator {
+    background-color: var(--key-background_btn-del-reset_theme-3);
+    border-color: var(--key-shadow_btn-del-reset-theme-3);
+    color: var(--white-text_theme-2);
+  }
+
+  .button__result {
+    background-color: var(--key-background__toggle_btn-result_theme-3);
+    border-color: var(--key-shadow_btn-result_theme-3);
+    color: var(--colors-btn-text-result_theme-3);
+  }
+
+  .button__result:hover,
+  .switch-controler:hover {
+    background-color: var(--hover-btn-result_switch-controler-theme03);
+  }
+
+  .button__calculator:hover {
+    background-color: var(--hover-btn-calculators-theme03);
+  }
+
+  .button__commons:hover {
+    background-color: var(--hover-btn-commons-theme03);
+  }
+  */
 }
