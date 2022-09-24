@@ -3,14 +3,18 @@
 import {initCalculator} from "./calculator.js";
 
 window.addEventListener("load", event => {
-  toggleTheme(localStorage.getItem("theme"));
+  if(localStorage.getItem("theme") != null) {
+    toggleTheme(localStorage.getItem("theme"));
+    document
+      .querySelector(`.option-theme[value="${localStorage.getItem("theme")}"]`)
+      .setAttribute("checked", "true");
+  }else{
+    localStorage.setItem("theme", 1);
+    setOptionTheme(getOptionTheme());
+  }
 });
 
 function initToggleTheme() {
-    //define option theme default escolhido anteriromente se tiver definido
-    if(localStorage.getItem("theme") != null) {
-        setOptionTheme(getOptionTheme());
-    }
     let btnRadios = document.querySelectorAll('input[type="radio"]');
     btnRadios.forEach(radioButton => {
       radioButton.addEventListener("change", (event) => {
