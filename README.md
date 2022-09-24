@@ -36,8 +36,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Repository Project](https://github.com/Samuel-Amaro/calculator-app)
+- Live Site URL: [Live Result](https://samuel-amaro.github.io/calculator-app/)
 
 ## My process
 
@@ -53,6 +53,7 @@ Users should be able to:
 - Web acessibility
 - JavaScript Programming Language
 - API DOM JS
+- API Web Storage - LocalStorage
 - Normalize CSS - [Normalize](https://necolas.github.io/normalize.css/) - Reset CSS
 - Methodology BEM(Block Element Modifier) - [BEM](http://getbem.com/introduction/) - Methodology
 
@@ -60,7 +61,6 @@ Users should be able to:
 
 - [Article resource](https://web.dev/prefers-color-scheme/) - helped me understand about prefers-colors-scheme
 - [Article resource](https://web.dev/building-a-theme-switch-component/) - hepped me build toggle component theme.
-- 
 
 ## Author
 

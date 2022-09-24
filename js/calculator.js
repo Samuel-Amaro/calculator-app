@@ -65,11 +65,6 @@ function handleClickBtn(event) {
     if (operation != null) {
       nextPostClickNumber = nextPostClickNumber + event.target.value;
     }
-
-    /*console.log("previousNumber: " + previousNumberBeforeClick);
-    console.log("operation: " + operation);
-    console.log("nextNumber: " + nextPostClickNumber);
-    */
     
   }
 
@@ -111,15 +106,6 @@ function calculator() {
       ? parseFloat(nextPostClickNumber)
       : parseInt(nextPostClickNumber);
 
-    /*console.log(
-      `${previousNumberBeforeClick} ${operation} ${nextPostClickNumber} = ${operationsCalculator(
-        numberPrevios,
-        operation,
-        nextNumber
-      )}`
-    );
-    */
-
     let result = operationsCalculator(numberPrevios, operation, nextNumber);
 
     if (result != Infinity && isNaN(result) === false) {
@@ -143,7 +129,6 @@ function calculator() {
 }
 
 function deleteOperatorScreen(event) {
-  //verificar se foi clicado DEL ou RESET para click ou Delete ou Backspace digitado
   if (event?.target.value === "DEL" || event?.key === "Backspace") {
     if (
       screen.textContent != "" &&
@@ -157,7 +142,6 @@ function deleteOperatorScreen(event) {
       clearValuesOperators();
     }
   } else {
-    //CLICOU "RESET" ou digitou "Delete"
     clearScreen();
     clearValuesOperators();
   }
@@ -165,71 +149,27 @@ function deleteOperatorScreen(event) {
 
 function deleteCharScreen() {
   let textScreen = Array.from(screen.textContent.trim());
-
-  //saber se eu estou deletando uma operação ou resultado
-  /*let valueCurrentOperation = calculator(
-    parseInt(previousNumberBeforeClick),
-    operation,
-    parseInt(nextPostClickNumber)
-  );
-
-  //irei deletar valores de um resultado
-  if(valueCurrentOperation === null) {
-    previousNumberBeforeClick = textScreen.join("");
-    nextPostClickNumber = "";
-    operation = null;
-  }
-  */
-  //variaveis controladores das operações e screen são iguais
-  /*if (textScreen.join("") === String(valueCurrentOperation)) {
-    previousNumberBeforeClick = textScreen.join("");
-    nextPostClickNumber = "";
-    operation = null;
-  }*/
-
   textScreen.pop();
   screen.textContent = textScreen.join("");
 
   if (nextPostClickNumber != "") {
-    /*console.log(
-      `nextNumber anterior: ${nextPostClickNumber} lenght: ${nextPostClickNumber.length}`
-    );
-    */
     let newNextNumber = Array.from(nextPostClickNumber);
     newNextNumber.pop();
     nextPostClickNumber = newNextNumber.join("");
-    /*console.log(
-      `nextNumber atual: ${nextPostClickNumber} lenght: ${nextPostClickNumber.length}`
-    );
-    */
     return;
   }
 
   if (operation != "" && operation != null) {
-    /*console.log(`operation: ${operation} lenght: ${operation.length}`);*/
     let newOperation = Array.from(operation);
     newOperation.pop();
     operation = newOperation.join() === "" ? null : newOperation.join();
-    /*console.log(
-      `operation apos excluido: ${operation} lenght: ${operation?.length}`
-    );
-    */
     return;
   }
 
   if (previousNumberBeforeClick != "") {
-    /*
-    console.log(
-      `previousNumber: ${previousNumberBeforeClick} lenght: ${previousNumberBeforeClick.length}`
-    );
-    */
     let newPreviousNumber = Array.from(previousNumberBeforeClick);
     newPreviousNumber.pop();
     previousNumberBeforeClick = newPreviousNumber.join("");
-    /*console.log(
-      `previous Number apos excluido: ${previousNumberBeforeClick} lenght: ${previousNumberBeforeClick.length}`
-    );
-    */
     return;
   }
 
@@ -239,7 +179,6 @@ function deleteCharScreen() {
       previousNumberBeforeClick === "") ||
     screen.textContent.trim().length === 1
   ) {
-    /*console.log("So possui 1 char na screen");*/
     clearScreen();
     clearValuesOperators();
     return;
@@ -341,12 +280,6 @@ function controlerCalculatorKey(value) {
   if (operation != null) {
     nextPostClickNumber = nextPostClickNumber + value;
   }
-
-  /*
-  console.log("previousNumber: " + previousNumberBeforeClick);
-  console.log("operation: " + operation);
-  console.log("nextNumber: " + nextPostClickNumber);
-  */
 
   setUpdateScreen(value);
 }
